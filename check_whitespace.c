@@ -66,6 +66,12 @@ int is_clean(char* str) {
   // 0 if they're equal, and a positive value if the first is
   // greater than the second.
   result = strcmp(str, cleaned);
+  // ADDED by PCD: 9/11/2017
+  // If the `cleaned` string has length longer than 0 then 
+  // the function `strip` allocated memory that must be released:
+  if(strlen(cleaned)>0){
+	  free(cleaned);
+  }
 
   return result == 0;
 }
